@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sabores de Casa: recetas de cocina casera española explicadas paso a paso, con fotografías y vídeo."
+    />
+    <title>Sabores de Casa — Recetas de cocina casera</title>
+    <link rel="stylesheet" href="styles/main.scss" />
+  </head>
+  <body>
+    <include src="partials/header.html"></include>
+
+    <main id="main">
+      <section class="hero hero--home" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <h1 id="hero-title">Cocina de casa, de las de siempre</h1>
+          <p>
+            Recetas tradicionales españolas explicadas con calma, paso a paso y
+            sin prisa. Para cocinar bien sin complicarse.
+          </p>
+          <p><a class="btn" href="/categoria">Ver todas las recetas</a></p>
+        </div>
+      </section>
+
+      <section class="section container" aria-labelledby="intro-title">
+        <h2 class="section__title" id="intro-title">Empieza por aquí</h2>
+        <p class="section__lead">
+          Un pequeño recetario con los clásicos que nunca fallan. Elige una
+          sección y ponte el delantal.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <img
+              src="assets/images/cat-paella.jpg"
+              alt="Paella valenciana recién hecha en la paellera"
+            />
+            <div class="card__body">
+              <span class="card__badge">Arroces</span>
+              <h3 class="card__title">Paella valenciana</h3>
+              <p>El arroz más famoso de nuestra cocina, con su sofrito y su socarrat.</p>
+              <a class="card__link" href="/det1">Ver la receta</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="assets/images/cat-tortilla.jpg"
+              alt="Tortilla de patatas cortada mostrando el interior jugoso"
+            />
+            <div class="card__body">
+              <span class="card__badge">Huevos</span>
+              <h3 class="card__title">Tortilla de patatas</h3>
+              <p>Jugosa por dentro y cuajada al punto. El debate de la cebolla, resuelto.</p>
+              <a class="card__link" href="/det2">Ver la receta</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="assets/images/cat-gazpacho.jpg"
+              alt="Listado completo de recetas del recetario"
+            />
+            <div class="card__body">
+              <span class="card__badge">Recetario</span>
+              <h3 class="card__title">Todas las recetas</h3>
+              <p>Explora el listado completo y filtra por tipo de plato.</p>
+              <a class="card__link" href="/categoria">Ir al recetario</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <include src="partials/footer.html"></include>
+
+    <script type="module" src="scripts/main.js"></script>
+  </body>
+</html>

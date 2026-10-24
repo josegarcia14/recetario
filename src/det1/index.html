@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Receta de paella valenciana paso a paso: ingredientes, sofrito, caldo y el secreto del socarrat. Con galería de fotos y vídeo."
+    />
+    <title>Paella valenciana, paso a paso — Sabores de Casa</title>
+    <link rel="stylesheet" href="../styles/main.scss" />
+  </head>
+  <body>
+    <include src="partials/header.html"></include>
+
+    <nav class="breadcrumb" aria-label="Migas de pan">
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/categoria">Recetas</a></li>
+        <li aria-current="page">Paella valenciana</li>
+      </ol>
+    </nav>
+
+    <main id="main">
+      <article class="section container recipe">
+        <h1>Paella valenciana, paso a paso</h1>
+
+        <img
+          class="recipe__hero-img"
+          src="../assets/images/paella-hero.jpg"
+          alt="Paella valenciana terminada, con el arroz en su punto y las verduras repartidas"
+        />
+
+        <ul class="recipe__meta">
+          <li>Dificultad: media</li>
+          <li>Tiempo: 60 min</li>
+          <li>Raciones: 4</li>
+        </ul>
+
+        <div class="recipe__body">
+          <p>
+            La paella valenciana es, posiblemente, el plato más reconocible de la
+            cocina española. Nació en la huerta de Valencia como comida de campo:
+            un arroz cocinado al aire libre, con lo que había a mano, sobre fuego
+            de leña de naranjo. De aquella sencillez viene su grandeza, porque una
+            buena paella no necesita grandes lujos, sino buen producto y paciencia.
+          </p>
+
+          <p>
+            El secreto no está en un ingrediente milagroso, sino en el orden. Primero
+            se sofríe la carne despacio, hasta que dora bien; después las verduras;
+            luego el tomate, que debe perder toda el agua; y solo entonces el arroz,
+            que se nacara unos segundos antes de añadir el caldo caliente. A partir de
+            ese momento, no se remueve: el arroz tiene que cocer tranquilo y repartido.
+          </p>
+
+          <p>
+            El premio final es el <span lang="ca">socarrat</span>, esa capa de arroz
+            tostado que se forma en el fondo cuando el caldo se ha consumido. Se
+            consigue subiendo el fuego el último minuto y escuchando: cuando huele a
+            tostado (pero antes de que huela a quemado), la paella está lista. Se
+            retira del fuego, se cubre con un paño y se deja reposar cinco minutos
+            antes de servir.
+          </p>
+
+          <table class="table">
+            <caption>Ingredientes para 4 raciones</caption>
+            <thead>
+              <tr>
+                <th scope="col">Ingrediente</th>
+                <th scope="col">Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Arroz redondo</th><td>400 g</td></tr>
+              <tr><th scope="row">Pollo y conejo troceados</th><td>700 g</td></tr>
+              <tr><th scope="row">Judía verde plana y garrofó</th><td>250 g</td></tr>
+              <tr><th scope="row">Tomate maduro rallado</th><td>1 unidad</td></tr>
+              <tr><th scope="row">Caldo o agua</th><td>1 litro</td></tr>
+              <tr><th scope="row">Azafrán, pimentón, aceite y sal</th><td>al gusto</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Preparación</h2>
+          <ol>
+            <li>Dora la carne en aceite caliente, con sal, hasta que coja color por todos lados.</li>
+            <li>Añade las verduras y rehoga; incorpora el tomate y cocina hasta que se evapore el agua.</li>
+            <li>Agrega el pimentón, remueve rápido y vierte el caldo caliente con el azafrán.</li>
+            <li>Cuando hierva, añade el arroz repartido. No vuelvas a removerlo.</li>
+            <li>Cuece 18 minutos; sube el fuego al final para lograr el socarrat y deja reposar.</li>
+          </ol>
+
+          <h2>Galería</h2>
+          <p>Toca cualquier foto para verla a pantalla completa.</p>
+          <div class="gallery">
+            <a class="glightbox" data-gallery="paella">
+              <img src="../assets/images/paella-1.jpg" alt="Sofrito de carne y verduras en la paellera" />
+            </a>
+            <a class="glightbox" data-gallery="paella">
+              <img src="../assets/images/paella-2.jpg" alt="Arroz repartido sobre el caldo hirviendo" />
+            </a>
+            <a class="glightbox" data-gallery="paella">
+              <img src="../assets/images/paella-3.jpg" alt="Detalle del socarrat dorado en el fondo" />
+            </a>
+          </div>
+
+          <h2>Vídeo</h2>
+          <div class="video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/1MzMde4FzBM"
+              title="Vídeo: cómo preparar una paella valenciana paso a paso"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <include src="partials/footer.html"></include>
+
+    <script type="module" src="../scripts/main.js"></script>
+  </body>
+</html>

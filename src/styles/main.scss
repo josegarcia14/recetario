@@ -1,0 +1,499 @@
+// =============================================================
+//  Sabores de Casa - main stylesheet (Sass)
+//  Sass features in use: variables, nesting, mixins.
+//  CSS custom properties drive the visual theme.
+// =============================================================
+
+// ---- Sass variables ----
+$bp-sm: 40rem;   // ~640px
+$bp-md: 56rem;   // ~896px
+$content-width: 1100px;
+
+// ---- Sass mixin ----
+@mixin container {
+  width: min(100% - 2rem, #{$content-width});
+  margin-inline: auto;
+}
+
+// ---- Design tokens (CSS custom properties) ----
+:root {
+  --color-bg: #faf6f0;
+  --color-surface: #ffffff;
+  --color-text: #2b2420;
+  --color-muted: #5c524b;
+  --color-brand: #b23a1e;
+  --color-brand-dark: #8f2d14;
+  --color-accent: #4f6d2f;
+  --color-border: #e4d9cc;
+
+  --radius: 12px;
+  --shadow: 0 6px 20px rgba(43, 36, 32, 0.08);
+  --space: 1rem;
+
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-head: Georgia, "Times New Roman", serif;
+}
+
+// ---- Base ----
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-head);
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-brand-dark);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-brand);
+  }
+}
+
+// Visible focus ring for keyboard users (accessibility)
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+// ---- Utilities ----
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  @include container;
+}
+
+// ---- Skip link (WCAG "saltar navegación") ----
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  z-index: 100;
+  background: var(--color-text);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  transition: top 0.2s ease;
+
+  &:focus {
+    top: 0.5rem;
+    color: #fff;
+  }
+}
+
+// ---- Header & navigation ----
+.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  &__inner {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.75rem;
+  }
+}
+
+.logo {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+
+  span { color: var(--color-brand); }
+}
+
+.nav {
+  &__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--color-brand);
+    color: #fff;
+    border: 0;
+    border-radius: var(--radius);
+    padding: 0.5rem 0.9rem;
+    font: inherit;
+    cursor: pointer;
+
+    &:hover { background: var(--color-brand-dark); }
+  }
+
+  &__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: var(--color-text);
+      padding: 0.6rem 0.25rem;
+      font-weight: 600;
+
+      &:hover,
+      &:focus-visible { color: var(--color-brand); }
+
+      // Active page is marked with underline + weight, not color alone
+      &[aria-current="page"] {
+        color: var(--color-brand-dark);
+        text-decoration: underline;
+        text-underline-offset: 6px;
+        text-decoration-thickness: 3px;
+      }
+    }
+  }
+
+  // Mobile first: menu collapses, toggle is shown
+  @media (max-width: $bp-sm) {
+    &__menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0.5rem 1rem 1rem;
+
+      &.is-open { display: block; }
+    }
+  }
+
+  // From small up: horizontal menu, hide the toggle
+  @media (min-width: $bp-sm) {
+    display: flex;
+    align-items: center;
+
+    &__toggle { display: none; }
+
+    &__menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+  }
+}
+
+// ---- Hero ----
+.hero {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+  padding: 3rem 1rem;
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(43, 36, 32, 0.55); // dark overlay keeps text contrast AA
+  }
+
+  &__content {
+    position: relative;
+    max-width: 40rem;
+  }
+
+  h1 { color: #fff; }
+
+  p { font-size: 1.15rem; }
+
+  // Home hero background (Parcel resolves and hashes this asset)
+  &--home {
+    background-image: url("../assets/images/home-hero.jpg");
+  }
+}
+
+// ---- Buttons ----
+.btn {
+  display: inline-block;
+  background: var(--color-brand);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--color-brand-dark);
+    color: #fff;
+  }
+}
+
+// ---- Section helpers ----
+.section {
+  padding-block: 3rem;
+
+  &__title {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  &__lead {
+    text-align: center;
+    color: var(--color-muted);
+    max-width: 42rem;
+    margin: 0 auto 2rem;
+  }
+}
+
+// ---- Card grid ----
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: $bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+
+  img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
+
+  &__body {
+    padding: 1.1rem 1.2rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  &__title { margin: 0; font-size: 1.25rem; }
+
+  &__badge {
+    align-self: flex-start;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  &__link {
+    margin-top: auto;
+    font-weight: 700;
+  }
+}
+
+// ---- Category filter ----
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  &__btn {
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--color-text);
+
+    &:hover { border-color: var(--color-brand); }
+
+    // Pressed state does not rely on color alone (border + weight + check)
+    &[aria-pressed="true"] {
+      background: var(--color-brand);
+      border-color: var(--color-brand);
+      color: #fff;
+    }
+  }
+}
+
+// ---- Recipe detail ----
+.recipe {
+  &__hero-img {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0;
+    color: var(--color-muted);
+    font-weight: 600;
+  }
+
+  &__body {
+    max-width: 44rem;
+    margin-inline: auto;
+
+    p { margin-block: 1rem; }
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+
+  a { display: block; }
+
+  img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+.video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin: 1.5rem 0;
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: var(--radius);
+  }
+}
+
+// ---- Tables (used on detail pages, must be accessible) ----
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+
+  caption {
+    text-align: left;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--color-border);
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+  }
+
+  thead th { background: #f1e8dc; }
+}
+
+// ---- Footer ----
+.site-footer {
+  background: var(--color-text);
+  color: #f3ece4;
+  margin-top: 3rem;
+
+  &__inner {
+    @include container;
+    padding-block: 2rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  a { color: #f6c9b8; }
+}
+
+// ---- Breadcrumb ----
+.breadcrumb {
+  @include container;
+  padding-top: 1.25rem;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+
+  ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  li + li::before {
+    content: "/";
+    margin-right: 0.4rem;
+    color: var(--color-border);
+  }
+}
+
+// ---- Respect reduced motion ----
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

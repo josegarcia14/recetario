@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Fuentes, atribuciones de imágenes y declaración de uso de herramientas de IA para el contenido de Sabores de Casa."
+    />
+    <title>Fuentes y atribuciones — Sabores de Casa</title>
+    <link rel="stylesheet" href="../styles/main.scss" />
+  </head>
+  <body>
+    <include src="partials/header.html"></include>
+
+    <nav class="breadcrumb" aria-label="Migas de pan">
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li aria-current="page">Fuentes</li>
+      </ol>
+    </nav>
+
+    <main id="main">
+      <section class="section container recipe">
+        <h1>Fuentes y atribuciones</h1>
+
+        <div class="recipe__body">
+          <p>
+            En esta página se documentan todos los recursos de terceros utilizados en
+            el sitio, con su autoría, origen y licencia, así como el uso que se ha
+            hecho de herramientas de inteligencia artificial para la obtención de
+            contenido.
+          </p>
+
+          <h2>Imágenes</h2>
+          <p>
+            Todas las fotografías del sitio han sido generadas con una herramienta de
+            inteligencia artificial generativa (Google Gemini). Están alojadas en el
+            repositorio del proyecto, en formato JPEG y optimizadas para web.
+          </p>
+          <table class="table">
+            <caption>Origen de las imágenes del sitio</caption>
+            <thead>
+              <tr>
+                <th scope="col">Recurso</th>
+                <th scope="col">Herramienta</th>
+                <th scope="col">Estatus</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Fotografías de recetas, galerías y portada</th>
+                <td>Google Gemini (IA generativa)</td>
+                <td>Contenido generado por IA (uso declarado)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Vídeos</h2>
+          <p>
+            Los vídeos incrustados proceden de YouTube y se muestran mediante el
+            reproductor oficial en modo de privacidad mejorada
+            (<span lang="en">youtube-nocookie</span>). La autoría corresponde a sus
+            respectivos canales:
+          </p>
+          <ul>
+            <li>
+              Paella valenciana:
+              <a href="https://www.youtube.com/watch?v=1MzMde4FzBM">«PAELLA VALENCIANA receta tradicional»</a>,
+              del canal La Cocina de Pedro y Yolanda.
+            </li>
+            <li>
+              Tortilla de patatas:
+              <a href="https://www.youtube.com/watch?v=ULle2vGte8k">«Tortilla de papas, la receta de tortilla española que más gusta en casa»</a>,
+              del canal Katastrofa La Cocina.
+            </li>
+          </ul>
+
+          <h2>Textos</h2>
+          <p>
+            Los textos descriptivos de las recetas han sido redactados con la ayuda de
+            una herramienta de IA generativa, utilizada como asistente de redacción de
+            contenido. Este uso se corresponde con la obtención de contenido para la web,
+            expresamente permitido por el enunciado de la práctica, y se declara aquí tal
+            y como se solicita.
+          </p>
+
+          <h2>Software y librerías</h2>
+          <ul>
+            <li>
+              <a href="https://parceljs.org/">Parcel</a> &mdash; empaquetador del
+              proyecto (licencia MIT).
+            </li>
+            <li>
+              <a href="https://github.com/biati-digital/glightbox">GLightbox</a>
+              &mdash; galería/lightbox de imágenes (licencia MIT).
+            </li>
+            <li>
+              <a href="https://sass-lang.com/">Sass</a> y
+              <a href="https://postcss.org/">PostCSS</a> &mdash; preprocesado y
+              postprocesado de CSS.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <include src="partials/footer.html"></include>
+
+    <script type="module" src="../scripts/main.js"></script>
+  </body>
+</html>

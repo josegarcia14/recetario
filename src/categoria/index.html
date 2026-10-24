@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Listado de recetas de Sabores de Casa. Filtra por tipo de plato: arroces, huevos, verduras, entrantes y postres."
+    />
+    <title>Recetas — Sabores de Casa</title>
+    <link rel="stylesheet" href="../styles/main.scss" />
+  </head>
+  <body>
+    <include src="partials/header.html"></include>
+
+    <nav class="breadcrumb" aria-label="Migas de pan">
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li aria-current="page">Recetas</li>
+      </ol>
+    </nav>
+
+    <main id="main">
+      <section class="section container" aria-labelledby="cat-title">
+        <h1 class="section__title" id="cat-title">El recetario</h1>
+        <p class="section__lead">
+          Todas nuestras recetas en un vistazo. Usa los filtros para encontrar el
+          tipo de plato que te apetece.
+        </p>
+
+        <div
+          class="filter"
+          data-filter
+          role="group"
+          aria-label="Filtrar recetas por tipo de plato"
+        >
+          <button class="filter__btn" type="button" data-value="all" aria-pressed="true">Todas</button>
+          <button class="filter__btn" type="button" data-value="arroces" aria-pressed="false">Arroces</button>
+          <button class="filter__btn" type="button" data-value="huevos" aria-pressed="false">Huevos</button>
+          <button class="filter__btn" type="button" data-value="verduras" aria-pressed="false">Verduras</button>
+          <button class="filter__btn" type="button" data-value="entrantes" aria-pressed="false">Entrantes</button>
+          <button class="filter__btn" type="button" data-value="postres" aria-pressed="false">Postres</button>
+        </div>
+
+        <p class="visually-hidden" data-filter-status aria-live="polite"></p>
+
+        <div class="grid">
+          <article class="card" data-category="arroces">
+            <img src="../assets/images/cat-paella.jpg" alt="Paella valenciana en su paellera" />
+            <div class="card__body">
+              <span class="card__badge">Arroces</span>
+              <h2 class="card__title">Paella valenciana</h2>
+              <p>Arroz, sofrito, azafrán y socarrat. El plato de domingo por excelencia.</p>
+              <a class="card__link" href="/det1">Ver la receta</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="huevos">
+            <img src="../assets/images/cat-tortilla.jpg" alt="Tortilla de patatas cortada por la mitad" />
+            <div class="card__body">
+              <span class="card__badge">Huevos</span>
+              <h2 class="card__title">Tortilla de patatas</h2>
+              <p>Patata, huevo y buena mano. Jugosa por dentro y dorada por fuera.</p>
+              <a class="card__link" href="/det2">Ver la receta</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="verduras">
+            <img src="../assets/images/cat-gazpacho.jpg" alt="Cuenco de gazpacho andaluz frío" />
+            <div class="card__body">
+              <span class="card__badge">Verduras</span>
+              <h2 class="card__title">Gazpacho andaluz</h2>
+              <p>La sopa fría que salva cualquier verano. Tomate, pepino y pan.</p>
+              <p class="card__link"><small>Ficha en preparación</small></p>
+            </div>
+          </article>
+
+          <article class="card" data-category="verduras">
+            <img src="../assets/images/cat-pisto.jpg" alt="Sartén de pisto manchego de verduras" />
+            <div class="card__body">
+              <span class="card__badge">Verduras</span>
+              <h2 class="card__title">Pisto manchego</h2>
+              <p>Calabacín, pimiento y tomate a fuego lento. Sencillo y reconfortante.</p>
+              <p class="card__link"><small>Ficha en preparación</small></p>
+            </div>
+          </article>
+
+          <article class="card" data-category="entrantes">
+            <img src="../assets/images/cat-croquetas.jpg" alt="Plato de croquetas caseras de jamón" />
+            <div class="card__body">
+              <span class="card__badge">Entrantes</span>
+              <h2 class="card__title">Croquetas de jamón</h2>
+              <p>Cremosas por dentro y crujientes por fuera. El aprovechamiento perfecto.</p>
+              <p class="card__link"><small>Ficha en preparación</small></p>
+            </div>
+          </article>
+
+          <article class="card" data-category="postres">
+            <img src="../assets/images/cat-flan.jpg" alt="Flan de huevo casero con caramelo" />
+            <div class="card__body">
+              <span class="card__badge">Postres</span>
+              <h2 class="card__title">Flan de huevo</h2>
+              <p>El postre de la abuela, con su caramelo y su textura sedosa.</p>
+              <p class="card__link"><small>Ficha en preparación</small></p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <include src="partials/footer.html"></include>
+
+    <script type="module" src="../scripts/main.js"></script>
+  </body>
+</html>
