@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Parcel build output and cache (regenerable with a command)
+dist/
+.parcel-cache/
+
+# Logs
+npm-debug.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
