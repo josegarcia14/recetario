@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="fav-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b23a1e" />
+      <stop offset="100%" stop-color="#8f2d14" />
+    </linearGradient>
+  </defs>
+  <!-- Background badge -->
+  <rect width="64" height="64" rx="16" fill="url(#fav-grad)" />
+  <!-- Cooking pot -->
+  <path d="M16 28 h32 v14 a16 16 0 0 1 -32 0 Z" fill="#faf6f0" />
+  <rect x="12" y="24" width="40" height="4" rx="2" fill="#faf6f0" />
+  <!-- Pot handles -->
+  <path d="M12 30 h-3 a2 2 0 0 1 -2 -2 v0 a2 2 0 0 1 2 -2 h3" fill="none" stroke="#faf6f0" stroke-width="2.5" stroke-linecap="round" />
+  <path d="M52 30 h3 a2 2 0 0 0 2 -2 v0 a2 2 0 0 0 -2 -2 h-3" fill="none" stroke="#faf6f0" stroke-width="2.5" stroke-linecap="round" />
+  <!-- Steam waves -->
+  <path d="M24 20 c0 -4 4 -4 4 -8" fill="none" stroke="#faf6f0" stroke-width="2.5" stroke-linecap="round" />
+  <path d="M32 20 c0 -5 4 -5 4 -10" fill="none" stroke="#faf6f0" stroke-width="2.5" stroke-linecap="round" />
+  <path d="M40 20 c0 -4 4 -4 4 -8" fill="none" stroke="#faf6f0" stroke-width="2.5" stroke-linecap="round" />
+</svg>

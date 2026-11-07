@@ -8,6 +8,8 @@
       content="Receta de paella valenciana paso a paso: ingredientes, sofrito, caldo y el secreto del socarrat. Con galería de fotos y vídeo."
     />
     <title>Paella valenciana, paso a paso — Sabores de Casa</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link rel="alternate icon" href="../assets/favicon.png" />
     <link rel="stylesheet" href="../styles/main.scss" />
   </head>
   <body>
@@ -25,11 +27,73 @@
       <article class="section container recipe">
         <h1>Paella valenciana, paso a paso</h1>
 
-        <img
-          class="recipe__hero-img"
-          src="../assets/images/paella-hero.jpg"
-          alt="Paella valenciana terminada, con el arroz en su punto y las verduras repartidas"
-        />
+        <!-- Dirección de arte: adaptación de proporciones y encuadre según el tamaño del viewport -->
+        <picture class="recipe__hero-picture">
+          <!-- Versión móvil (< 640px): encuadre cuadrado 1:1 centrado sobre la paella -->
+          <source
+            media="(max-width: 640px)"
+            srcset="
+              ../assets/images/paella-hero-mobile.jpg?as=avif&width=400 400w,
+              ../assets/images/paella-hero-mobile.jpg?as=avif&width=800 800w
+            "
+            sizes="100vw"
+            type="image/avif"
+          />
+          <source
+            media="(max-width: 640px)"
+            srcset="
+              ../assets/images/paella-hero-mobile.jpg?as=webp&width=400 400w,
+              ../assets/images/paella-hero-mobile.jpg?as=webp&width=800 800w
+            "
+            sizes="100vw"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 640px)"
+            srcset="
+              ../assets/images/paella-hero-mobile.jpg?width=400 400w,
+              ../assets/images/paella-hero-mobile.jpg?width=800 800w
+            "
+            sizes="100vw"
+            type="image/jpeg"
+          />
+
+          <!-- Versión escritorio / tablet (>= 641px): formato panorámico 16:9 de contexto amplio -->
+          <source
+            media="(min-width: 641px)"
+            srcset="
+              ../assets/images/paella-hero.jpg?as=avif&width=640  640w,
+              ../assets/images/paella-hero.jpg?as=avif&width=1000 1000w,
+              ../assets/images/paella-hero.jpg?as=avif&width=1400 1400w
+            "
+            sizes="(max-width: 1100px) 100vw, 1100px"
+            type="image/avif"
+          />
+          <source
+            media="(min-width: 641px)"
+            srcset="
+              ../assets/images/paella-hero.jpg?as=webp&width=640  640w,
+              ../assets/images/paella-hero.jpg?as=webp&width=1000 1000w,
+              ../assets/images/paella-hero.jpg?as=webp&width=1400 1400w
+            "
+            sizes="(max-width: 1100px) 100vw, 1100px"
+            type="image/webp"
+          />
+          <img
+            class="recipe__hero-img"
+            src="../assets/images/paella-hero.jpg?width=1000"
+            srcset="
+              ../assets/images/paella-hero.jpg?width=640  640w,
+              ../assets/images/paella-hero.jpg?width=1000 1000w,
+              ../assets/images/paella-hero.jpg?width=1400 1400w
+            "
+            sizes="(max-width: 1100px) 100vw, 1100px"
+            alt="Paella valenciana terminada con arroz dorado en su punto, garrofó y carne"
+            width="1000"
+            height="558"
+            fetchpriority="high"
+          />
+        </picture>
 
         <ul class="recipe__meta">
           <li>Dificultad: media</li>
@@ -74,7 +138,7 @@
             <tbody>
               <tr><th scope="row">Arroz redondo</th><td>400 g</td></tr>
               <tr><th scope="row">Pollo y conejo troceados</th><td>700 g</td></tr>
-              <tr><th scope="row">Judía verde plana y garrofó</th><td>250 g</td></tr>
+              <tr><th scope="row">Judía verde plana y <span lang="ca">garrofó</span></th><td>250 g</td></tr>
               <tr><th scope="row">Tomate maduro rallado</th><td>1 unidad</td></tr>
               <tr><th scope="row">Caldo o agua</th><td>1 litro</td></tr>
               <tr><th scope="row">Azafrán, pimentón, aceite y sal</th><td>al gusto</td></tr>
@@ -92,15 +156,97 @@
 
           <h2>Galería</h2>
           <p>Toca cualquier foto para verla a pantalla completa.</p>
+          
+          <!-- Galería con Resolution Switching por densidad de píxeles (DPI 1x / 2x) -->
           <div class="gallery">
-            <a class="glightbox" data-gallery="paella">
-              <img src="../assets/images/paella-1.jpg" alt="Sofrito de carne y verduras en la paellera" />
+            <a class="glightbox" href="../assets/images/paella-1.jpg?as=webp&width=1200" data-gallery="paella">
+              <picture>
+                <source
+                  srcset="
+                    ../assets/images/paella-1.jpg?as=avif&width=350 1x,
+                    ../assets/images/paella-1.jpg?as=avif&width=700 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  srcset="
+                    ../assets/images/paella-1.jpg?as=webp&width=350 1x,
+                    ../assets/images/paella-1.jpg?as=webp&width=700 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="../assets/images/paella-1.jpg?width=350"
+                  srcset="
+                    ../assets/images/paella-1.jpg?width=350 1x,
+                    ../assets/images/paella-1.jpg?width=700 2x
+                  "
+                  alt="Sofrito de carne y verduras dorándose a fuego vivo en la paellera"
+                  loading="lazy"
+                  width="350"
+                  height="262"
+                />
+              </picture>
             </a>
-            <a class="glightbox" data-gallery="paella">
-              <img src="../assets/images/paella-2.jpg" alt="Arroz repartido sobre el caldo hirviendo" />
+
+            <a class="glightbox" href="../assets/images/paella-2.jpg?as=webp&width=1200" data-gallery="paella">
+              <picture>
+                <source
+                  srcset="
+                    ../assets/images/paella-2.jpg?as=avif&width=350 1x,
+                    ../assets/images/paella-2.jpg?as=avif&width=700 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  srcset="
+                    ../assets/images/paella-2.jpg?as=webp&width=350 1x,
+                    ../assets/images/paella-2.jpg?as=webp&width=700 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="../assets/images/paella-2.jpg?width=350"
+                  srcset="
+                    ../assets/images/paella-2.jpg?width=350 1x,
+                    ../assets/images/paella-2.jpg?width=700 2x
+                  "
+                  alt="Arroz repartido homogéneamente sobre el caldo hirviendo con azafrán"
+                  loading="lazy"
+                  width="350"
+                  height="262"
+                />
+              </picture>
             </a>
-            <a class="glightbox" data-gallery="paella">
-              <img src="../assets/images/paella-3.jpg" alt="Detalle del socarrat dorado en el fondo" />
+
+            <a class="glightbox" href="../assets/images/paella-3.jpg?as=webp&width=1200" data-gallery="paella">
+              <picture>
+                <source
+                  srcset="
+                    ../assets/images/paella-3.jpg?as=avif&width=350 1x,
+                    ../assets/images/paella-3.jpg?as=avif&width=700 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  srcset="
+                    ../assets/images/paella-3.jpg?as=webp&width=350 1x,
+                    ../assets/images/paella-3.jpg?as=webp&width=700 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="../assets/images/paella-3.jpg?width=350"
+                  srcset="
+                    ../assets/images/paella-3.jpg?width=350 1x,
+                    ../assets/images/paella-3.jpg?width=700 2x
+                  "
+                  alt="Detalle en primer plano del socarrat tostado y crujiente en el fondo"
+                  loading="lazy"
+                  width="350"
+                  height="262"
+                />
+              </picture>
             </a>
           </div>
 

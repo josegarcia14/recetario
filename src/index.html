@@ -8,6 +8,8 @@
       content="Sabores de Casa: recetas de cocina casera española explicadas paso a paso, con fotografías y vídeo."
     />
     <title>Sabores de Casa — Recetas de cocina casera</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="alternate icon" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles/main.scss" />
   </head>
   <body>
@@ -15,7 +17,69 @@
 
     <main id="main">
       <section class="hero hero--home" aria-labelledby="hero-title">
+        <picture class="hero__picture">
+          <source
+            srcset="
+              assets/images/home-hero.jpg?as=avif&width=800 800w,
+              assets/images/home-hero.jpg?as=avif&width=1400 1400w,
+              assets/images/home-hero.jpg?as=avif&width=1920 1920w
+            "
+            sizes="100vw"
+            type="image/avif"
+          />
+          <source
+            srcset="
+              assets/images/home-hero.jpg?as=webp&width=800 800w,
+              assets/images/home-hero.jpg?as=webp&width=1400 1400w,
+              assets/images/home-hero.jpg?as=webp&width=1920 1920w
+            "
+            sizes="100vw"
+            type="image/webp"
+          />
+          <img
+            class="hero__bg-img"
+            src="assets/images/home-hero.jpg?width=1400"
+            srcset="
+              assets/images/home-hero.jpg?width=800 800w,
+              assets/images/home-hero.jpg?width=1400 1400w,
+              assets/images/home-hero.jpg?width=1920 1920w
+            "
+            sizes="100vw"
+            alt="Mesa de cocina tradicional con ingredientes y cazuelas listas para cocinar"
+            width="1600"
+            height="893"
+            fetchpriority="high"
+          />
+        </picture>
+        <div class="hero__overlay" aria-hidden="true"></div>
+
         <div class="hero__content">
+          <div class="hero__badge">
+            <svg class="hero-svg" viewBox="0 0 120 120" role="img" aria-labelledby="svg-pot-title">
+              <title id="svg-pot-title">Cazuela tradicional al fuego con vapor animado</title>
+              <!-- Simmer flame -->
+              <path class="hero-svg__flame" d="M36 104 Q60 88 84 104 Q60 114 36 104 Z" fill="#e65100" />
+              <path class="hero-svg__flame" d="M46 103 Q60 92 74 103 Q60 110 46 103 Z" fill="#ffb300" />
+              <!-- Pot body with simmer animation -->
+              <g class="hero-svg__pot">
+                <ellipse cx="60" cy="85" rx="36" ry="18" fill="#5d4037" />
+                <path d="M24 72 Q60 82 96 72 L92 88 Q60 102 28 88 Z" fill="#4e342e" />
+                <ellipse cx="60" cy="72" rx="36" ry="10" fill="#6d4c41" />
+                <ellipse cx="60" cy="72" rx="32" ry="7" fill="#b23a1e" />
+                <!-- Handles -->
+                <path d="M22 74 C14 74 14 82 22 84" fill="none" stroke="#ffb300" stroke-width="3" stroke-linecap="round" />
+                <path d="M98 74 C106 74 106 82 98 84" fill="none" stroke="#ffb300" stroke-width="3" stroke-linecap="round" />
+              </g>
+              <!-- Animated steam waves -->
+              <g class="hero-svg__steam-group">
+                <path class="hero-svg__steam hero-svg__steam--1" d="M46 64 C42 54 50 46 44 34 C40 24 48 16 44 8" fill="none" stroke="#faf6f0" stroke-width="3" stroke-linecap="round" />
+                <path class="hero-svg__steam hero-svg__steam--2" d="M60 62 C64 50 56 42 62 30 C66 20 58 12 62 6" fill="none" stroke="#faf6f0" stroke-width="3.5" stroke-linecap="round" />
+                <path class="hero-svg__steam hero-svg__steam--3" d="M74 64 C78 54 70 46 76 34 C80 24 72 16 76 8" fill="none" stroke="#faf6f0" stroke-width="3" stroke-linecap="round" />
+              </g>
+            </svg>
+            <span class="hero__badge-text">Recetas a fuego lento</span>
+          </div>
+
           <h1 id="hero-title">Cocina de casa, de las de siempre</h1>
           <p>
             Recetas tradicionales españolas explicadas con calma, paso a paso y
@@ -25,6 +89,64 @@
         </div>
       </section>
 
+      <!-- Sección con imagen recortada creativamente mediante clip-path -->
+      <section class="section container featured-clip" aria-labelledby="clip-title">
+        <div class="featured-clip__grid">
+          <div class="featured-clip__media">
+            <picture class="featured-clip__picture">
+              <source
+                srcset="
+                  assets/images/cat-croquetas.jpg?as=avif&width=450 450w,
+                  assets/images/cat-croquetas.jpg?as=avif&width=700 700w
+                "
+                sizes="(max-width: 640px) 100vw, 450px"
+                type="image/avif"
+              />
+              <source
+                srcset="
+                  assets/images/cat-croquetas.jpg?as=webp&width=450 450w,
+                  assets/images/cat-croquetas.jpg?as=webp&width=700 700w
+                "
+                sizes="(max-width: 640px) 100vw, 450px"
+                type="image/webp"
+              />
+              <img
+                class="featured-clip__img"
+                src="assets/images/cat-croquetas.jpg?width=450"
+                srcset="
+                  assets/images/cat-croquetas.jpg?width=450 450w,
+                  assets/images/cat-croquetas.jpg?width=700 700w
+                "
+                sizes="(max-width: 640px) 100vw, 450px"
+                alt="Croquetas caseras doradas y crujientes con silueta geométrica recortada"
+                loading="lazy"
+                width="450"
+                height="302"
+              />
+            </picture>
+            <span class="featured-clip__tag" aria-hidden="true">100% Casero</span>
+          </div>
+          <div class="featured-clip__content">
+            <span class="card__badge">Técnica y tradición</span>
+            <h2 class="section__title" id="clip-title">El secreto de una bechamel sin grumos</h2>
+            <p>
+              Tanto en una paella con buen socarrat como en unas croquetas melosas, el secreto
+              reside en mimar cada paso. Tostar la harina con la mantequilla hasta
+              que pierda el sabor a crudo, verter la leche caliente sin prisa y remover
+              con varilla a ritmo constante.
+            </p>
+            <p>
+              En nuestro recetario defendemos esa cocina sin atajos, donde el tiempo
+              y la temperatura justa consiguen texturas inigualables.
+            </p>
+            <p>
+              <a class="btn btn--secondary" href="/categoria">Explorar trucos de cocina</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid de recetas destacadas (Resolution switching por tamaño) -->
       <section class="section container" aria-labelledby="intro-title">
         <h2 class="section__title" id="intro-title">Empieza por aquí</h2>
         <p class="section__lead">
@@ -34,10 +156,36 @@
 
         <div class="grid">
           <article class="card">
-            <img
-              src="assets/images/cat-paella.jpg"
-              alt="Paella valenciana recién hecha en la paellera"
-            />
+            <picture>
+              <source
+                srcset="
+                  assets/images/cat-paella.jpg?as=avif&width=400 400w,
+                  assets/images/cat-paella.jpg?as=avif&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/avif"
+              />
+              <source
+                srcset="
+                  assets/images/cat-paella.jpg?as=webp&width=400 400w,
+                  assets/images/cat-paella.jpg?as=webp&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/webp"
+              />
+              <img
+                src="assets/images/cat-paella.jpg?width=400"
+                srcset="
+                  assets/images/cat-paella.jpg?width=400 400w,
+                  assets/images/cat-paella.jpg?width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                alt="Paella valenciana recién hecha en la paellera"
+                loading="lazy"
+                width="400"
+                height="269"
+              />
+            </picture>
             <div class="card__body">
               <span class="card__badge">Arroces</span>
               <h3 class="card__title">Paella valenciana</h3>
@@ -47,10 +195,36 @@
           </article>
 
           <article class="card">
-            <img
-              src="assets/images/cat-tortilla.jpg"
-              alt="Tortilla de patatas cortada mostrando el interior jugoso"
-            />
+            <picture>
+              <source
+                srcset="
+                  assets/images/cat-tortilla.jpg?as=avif&width=400 400w,
+                  assets/images/cat-tortilla.jpg?as=avif&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/avif"
+              />
+              <source
+                srcset="
+                  assets/images/cat-tortilla.jpg?as=webp&width=400 400w,
+                  assets/images/cat-tortilla.jpg?as=webp&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/webp"
+              />
+              <img
+                src="assets/images/cat-tortilla.jpg?width=400"
+                srcset="
+                  assets/images/cat-tortilla.jpg?width=400 400w,
+                  assets/images/cat-tortilla.jpg?width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                alt="Tortilla de patatas cortada mostrando el interior jugoso"
+                loading="lazy"
+                width="400"
+                height="269"
+              />
+            </picture>
             <div class="card__body">
               <span class="card__badge">Huevos</span>
               <h3 class="card__title">Tortilla de patatas</h3>
@@ -60,10 +234,36 @@
           </article>
 
           <article class="card">
-            <img
-              src="assets/images/cat-gazpacho.jpg"
-              alt="Listado completo de recetas del recetario"
-            />
+            <picture>
+              <source
+                srcset="
+                  assets/images/cat-gazpacho.jpg?as=avif&width=400 400w,
+                  assets/images/cat-gazpacho.jpg?as=avif&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/avif"
+              />
+              <source
+                srcset="
+                  assets/images/cat-gazpacho.jpg?as=webp&width=400 400w,
+                  assets/images/cat-gazpacho.jpg?as=webp&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/webp"
+              />
+              <img
+                src="assets/images/cat-gazpacho.jpg?width=400"
+                srcset="
+                  assets/images/cat-gazpacho.jpg?width=400 400w,
+                  assets/images/cat-gazpacho.jpg?width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                alt="Cuenco de gazpacho andaluz fresco con hortalizas de temporada"
+                loading="lazy"
+                width="400"
+                height="269"
+              />
+            </picture>
             <div class="card__body">
               <span class="card__badge">Recetario</span>
               <h3 class="card__title">Todas las recetas</h3>

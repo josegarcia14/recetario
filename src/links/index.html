@@ -8,6 +8,8 @@
       content="Fuentes, atribuciones de imágenes y declaración de uso de herramientas de IA para el contenido de Sabores de Casa."
     />
     <title>Fuentes y atribuciones — Sabores de Casa</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link rel="alternate icon" href="../assets/favicon.png" />
     <link rel="stylesheet" href="../styles/main.scss" />
   </head>
   <body>
@@ -28,30 +30,48 @@
           <p>
             En esta página se documentan todos los recursos de terceros utilizados en
             el sitio, con su autoría, origen y licencia, así como el uso que se ha
-            hecho de herramientas de inteligencia artificial para la obtención de
-            contenido.
+            hecho de herramientas de optimización, gráficos vectoriales e inteligencia
+            artificial para la obtención de contenido.
           </p>
 
-          <h2>Imágenes</h2>
+          <h2>Imágenes y optimización</h2>
           <p>
-            Todas las fotografías del sitio han sido generadas con una herramienta de
-            inteligencia artificial generativa (Google Gemini). Están alojadas en el
-            repositorio del proyecto, en formato JPEG y optimizadas para web.
+            Todas las fotografías del sitio han sido generadas originalmente con
+            inteligencia artificial generativa (Google Gemini) y posteriormente
+            procesadas y optimizadas para producción mediante <strong>Sharp</strong>.
+            Se sirven de forma adaptativa en formatos modernos de alta compresión
+            (<strong>AVIF</strong> y <strong>WebP</strong>), manteniendo fallback
+            universal en JPEG para compatibilidad absoluta.
           </p>
           <table class="table">
-            <caption>Origen de las imágenes del sitio</caption>
+            <caption>Recursos gráficos y formatos del sitio</caption>
             <thead>
               <tr>
                 <th scope="col">Recurso</th>
-                <th scope="col">Herramienta</th>
-                <th scope="col">Estatus</th>
+                <th scope="col">Origen / Técnica</th>
+                <th scope="col">Formatos servidos</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">Fotografías de recetas, galerías y portada</th>
-                <td>Google Gemini (IA generativa)</td>
-                <td>Contenido generado por IA (uso declarado)</td>
+                <th scope="row">Fotografías de recetas y portadas</th>
+                <td>IA generativa (Gemini) + Sharp</td>
+                <td>AVIF, WebP, JPEG (responsive)</td>
+              </tr>
+              <tr>
+                <th scope="row">Cazuela y vapor animado (Portada)</th>
+                <td>Vectorial propio (SVG)</td>
+                <td>SVG animado con CSS (@keyframes)</td>
+              </tr>
+              <tr>
+                <th scope="row">Recorte de croquetas (Portada)</th>
+                <td>Fotografía propia + CSS clip-path</td>
+                <td>Polígono octogonal animado</td>
+              </tr>
+              <tr>
+                <th scope="row">Icono de pestaña (Favicon)</th>
+                <td>Vectorial propio (SVG)</td>
+                <td>SVG vectorial y PNG fallback</td>
               </tr>
             </tbody>
           </table>
@@ -90,6 +110,10 @@
             <li>
               <a href="https://parceljs.org/">Parcel</a> &mdash; empaquetador del
               proyecto (licencia MIT).
+            </li>
+            <li>
+              <a href="https://sharp.pixelplumbing.com/">Sharp</a> &mdash; motor de
+              procesamiento, transformación y optimización de imágenes (licencia Apache-2.0).
             </li>
             <li>
               <a href="https://github.com/biati-digital/glightbox">GLightbox</a>

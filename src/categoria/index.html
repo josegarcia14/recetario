@@ -8,6 +8,8 @@
       content="Listado de recetas de Sabores de Casa. Filtra por tipo de plato: arroces, huevos, verduras, entrantes y postres."
     />
     <title>Recetas — Sabores de Casa</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link rel="alternate icon" href="../assets/favicon.png" />
     <link rel="stylesheet" href="../styles/main.scss" />
   </head>
   <body>
@@ -45,8 +47,38 @@
         <p class="visually-hidden" data-filter-status aria-live="polite"></p>
 
         <div class="grid">
+          <!-- 1. Paella (Arroces) -->
           <article class="card" data-category="arroces">
-            <img src="../assets/images/cat-paella.jpg" alt="Paella valenciana en su paellera" />
+            <picture>
+              <source
+                srcset="
+                  ../assets/images/cat-paella.jpg?as=avif&width=400 400w,
+                  ../assets/images/cat-paella.jpg?as=avif&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/avif"
+              />
+              <source
+                srcset="
+                  ../assets/images/cat-paella.jpg?as=webp&width=400 400w,
+                  ../assets/images/cat-paella.jpg?as=webp&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/webp"
+              />
+              <img
+                src="../assets/images/cat-paella.jpg?width=400"
+                srcset="
+                  ../assets/images/cat-paella.jpg?width=400 400w,
+                  ../assets/images/cat-paella.jpg?width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                alt="Paella valenciana tradicional en su paellera con verduras y carne"
+                loading="lazy"
+                width="400"
+                height="269"
+              />
+            </picture>
             <div class="card__body">
               <span class="card__badge">Arroces</span>
               <h2 class="card__title">Paella valenciana</h2>
@@ -55,8 +87,38 @@
             </div>
           </article>
 
+          <!-- 2. Tortilla (Huevos) -->
           <article class="card" data-category="huevos">
-            <img src="../assets/images/cat-tortilla.jpg" alt="Tortilla de patatas cortada por la mitad" />
+            <picture>
+              <source
+                srcset="
+                  ../assets/images/cat-tortilla.jpg?as=avif&width=400 400w,
+                  ../assets/images/cat-tortilla.jpg?as=avif&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/avif"
+              />
+              <source
+                srcset="
+                  ../assets/images/cat-tortilla.jpg?as=webp&width=400 400w,
+                  ../assets/images/cat-tortilla.jpg?as=webp&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/webp"
+              />
+              <img
+                src="../assets/images/cat-tortilla.jpg?width=400"
+                srcset="
+                  ../assets/images/cat-tortilla.jpg?width=400 400w,
+                  ../assets/images/cat-tortilla.jpg?width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                alt="Tortilla de patatas casera cortada por la mitad mostrando textura jugosa"
+                loading="lazy"
+                width="400"
+                height="269"
+              />
+            </picture>
             <div class="card__body">
               <span class="card__badge">Huevos</span>
               <h2 class="card__title">Tortilla de patatas</h2>
@@ -65,8 +127,38 @@
             </div>
           </article>
 
+          <!-- 3. Gazpacho (Verduras) -->
           <article class="card" data-category="verduras">
-            <img src="../assets/images/cat-gazpacho.jpg" alt="Cuenco de gazpacho andaluz frío" />
+            <picture>
+              <source
+                srcset="
+                  ../assets/images/cat-gazpacho.jpg?as=avif&width=400 400w,
+                  ../assets/images/cat-gazpacho.jpg?as=avif&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/avif"
+              />
+              <source
+                srcset="
+                  ../assets/images/cat-gazpacho.jpg?as=webp&width=400 400w,
+                  ../assets/images/cat-gazpacho.jpg?as=webp&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/webp"
+              />
+              <img
+                src="../assets/images/cat-gazpacho.jpg?width=400"
+                srcset="
+                  ../assets/images/cat-gazpacho.jpg?width=400 400w,
+                  ../assets/images/cat-gazpacho.jpg?width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                alt="Cuenco de gazpacho andaluz frío con guarnición fresca"
+                loading="lazy"
+                width="400"
+                height="269"
+              />
+            </picture>
             <div class="card__body">
               <span class="card__badge">Verduras</span>
               <h2 class="card__title">Gazpacho andaluz</h2>
@@ -75,8 +167,38 @@
             </div>
           </article>
 
+          <!-- 4. Pisto (Verduras) -->
           <article class="card" data-category="verduras">
-            <img src="../assets/images/cat-pisto.jpg" alt="Sartén de pisto manchego de verduras" />
+            <picture>
+              <source
+                srcset="
+                  ../assets/images/cat-pisto.jpg?as=avif&width=400 400w,
+                  ../assets/images/cat-pisto.jpg?as=avif&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/avif"
+              />
+              <source
+                srcset="
+                  ../assets/images/cat-pisto.jpg?as=webp&width=400 400w,
+                  ../assets/images/cat-pisto.jpg?as=webp&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/webp"
+              />
+              <img
+                src="../assets/images/cat-pisto.jpg?width=400"
+                srcset="
+                  ../assets/images/cat-pisto.jpg?width=400 400w,
+                  ../assets/images/cat-pisto.jpg?width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                alt="Sartén de pisto manchego de hortalizas pochadas lentamente"
+                loading="lazy"
+                width="400"
+                height="269"
+              />
+            </picture>
             <div class="card__body">
               <span class="card__badge">Verduras</span>
               <h2 class="card__title">Pisto manchego</h2>
@@ -85,8 +207,38 @@
             </div>
           </article>
 
+          <!-- 5. Croquetas (Entrantes) -->
           <article class="card" data-category="entrantes">
-            <img src="../assets/images/cat-croquetas.jpg" alt="Plato de croquetas caseras de jamón" />
+            <picture>
+              <source
+                srcset="
+                  ../assets/images/cat-croquetas.jpg?as=avif&width=400 400w,
+                  ../assets/images/cat-croquetas.jpg?as=avif&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/avif"
+              />
+              <source
+                srcset="
+                  ../assets/images/cat-croquetas.jpg?as=webp&width=400 400w,
+                  ../assets/images/cat-croquetas.jpg?as=webp&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/webp"
+              />
+              <img
+                src="../assets/images/cat-croquetas.jpg?width=400"
+                srcset="
+                  ../assets/images/cat-croquetas.jpg?width=400 400w,
+                  ../assets/images/cat-croquetas.jpg?width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                alt="Plato de croquetas caseras de jamón crujientes"
+                loading="lazy"
+                width="400"
+                height="269"
+              />
+            </picture>
             <div class="card__body">
               <span class="card__badge">Entrantes</span>
               <h2 class="card__title">Croquetas de jamón</h2>
@@ -95,8 +247,38 @@
             </div>
           </article>
 
+          <!-- 6. Flan (Postres) -->
           <article class="card" data-category="postres">
-            <img src="../assets/images/cat-flan.jpg" alt="Flan de huevo casero con caramelo" />
+            <picture>
+              <source
+                srcset="
+                  ../assets/images/cat-flan.jpg?as=avif&width=400 400w,
+                  ../assets/images/cat-flan.jpg?as=avif&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/avif"
+              />
+              <source
+                srcset="
+                  ../assets/images/cat-flan.jpg?as=webp&width=400 400w,
+                  ../assets/images/cat-flan.jpg?as=webp&width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                type="image/webp"
+              />
+              <img
+                src="../assets/images/cat-flan.jpg?width=400"
+                srcset="
+                  ../assets/images/cat-flan.jpg?width=400 400w,
+                  ../assets/images/cat-flan.jpg?width=800 800w
+                "
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 350px"
+                alt="Flan de huevo casero tradicional bañado en salsa de caramelo"
+                loading="lazy"
+                width="400"
+                height="269"
+              />
+            </picture>
             <div class="card__body">
               <span class="card__badge">Postres</span>
               <h2 class="card__title">Flan de huevo</h2>

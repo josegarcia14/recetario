@@ -226,30 +226,267 @@ a {
   text-align: center;
   display: grid;
   place-items: center;
-  min-height: 60vh;
-  padding: 3rem 1rem;
-  background-size: cover;
-  background-position: center;
+  min-height: 65vh;
+  padding: 4rem 1rem;
+  overflow: hidden;
 
-  &::before {
-    content: "";
+  // Responsive picture as background
+  &__picture,
+  &__bg-img {
     position: absolute;
     inset: 0;
-    background: rgba(43, 36, 32, 0.55); // dark overlay keeps text contrast AA
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  // Dark overlay ensures AA contrast for hero text
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(43, 36, 32, 0.72) 0%,
+      rgba(43, 36, 32, 0.58) 50%,
+      rgba(43, 36, 32, 0.78) 100%
+    );
+    z-index: 1;
   }
 
   &__content {
     position: relative;
-    max-width: 40rem;
+    z-index: 2;
+    max-width: 44rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 
-  h1 { color: #fff; }
+  h1 {
+    color: #fff;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
 
-  p { font-size: 1.15rem; }
+  p {
+    font-size: 1.15rem;
+    margin: 0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
 
-  // Home hero background (Parcel resolves and hashes this asset)
-  &--home {
-    background-image: url("../assets/images/home-hero.jpg");
+  // Animated SVG feature badge
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: rgba(250, 246, 240, 0.15);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(250, 246, 240, 0.3);
+    padding: 0.4rem 1rem 0.4rem 0.6rem;
+    border-radius: 999px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &__badge-text {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #faf6f0;
+  }
+}
+
+// ---- Animated SVG (Pot with rising steam and flame) ----
+.hero-svg {
+  width: 42px;
+  height: 42px;
+  overflow: visible;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+
+  // Pot gentle simmer
+  &__pot {
+    animation: potSimmer 3s ease-in-out infinite alternate;
+    transform-origin: center bottom;
+  }
+
+  // Flame glow
+  &__flame {
+    animation: flamePulse 1.8s ease-in-out infinite alternate;
+    transform-origin: 60px 105px;
+  }
+
+  // Rising steam waves with staggered timings
+  &__steam {
+    opacity: 0;
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: steamRise 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transform-origin: center bottom;
+
+    &--1 {
+      animation-delay: 0s;
+    }
+
+    &--2 {
+      animation-delay: 0.9s;
+    }
+
+    &--3 {
+      animation-delay: 1.8s;
+    }
+  }
+}
+
+// Keyframes for SVG animation
+@keyframes steamRise {
+  0% {
+    opacity: 0;
+    transform: translateY(4px) scaleY(0.7);
+    stroke-dashoffset: 24;
+  }
+  30% {
+    opacity: 0.9;
+    stroke-dashoffset: 0;
+  }
+  70% {
+    opacity: 0.7;
+    transform: translateY(-8px) scaleY(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-16px) scaleY(1.3);
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes flamePulse {
+  0% {
+    transform: scale(0.95, 0.9);
+    filter: brightness(0.95);
+  }
+  100% {
+    transform: scale(1.08, 1.15);
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes potSimmer {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-0.8deg);
+  }
+  75% {
+    transform: rotate(0.8deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+// ---- Featured Clip-path section (Portada) ----
+.featured-clip {
+  margin-top: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius) * 1.5);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
+
+  @media (min-width: $bp-sm) {
+    padding: 3rem 2.5rem;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    grid-template-columns: 1fr;
+
+    @media (min-width: $bp-sm) {
+      grid-template-columns: 1fr 1.2fr;
+    }
+  }
+
+  &__media {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    // Outer drop-shadow follows the polygon clip-path shape
+    filter: drop-shadow(0 14px 28px rgba(43, 36, 32, 0.16));
+  }
+
+  &__picture {
+    display: block;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    // Creative octagonal polygon clip-path
+    clip-path: polygon(
+      28% 0%, 72% 0%,
+      100% 28%, 100% 72%,
+      72% 100%, 28% 100%,
+      0% 72%, 0% 28%
+    );
+    transition: clip-path 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s ease;
+
+    &:hover {
+      // Morph polygon smoothly on hover
+      clip-path: polygon(
+        15% 0%, 85% 0%,
+        100% 15%, 100% 85%,
+        85% 100%, 15% 100%,
+        0% 85%, 0% 15%
+      );
+      transform: scale(1.03) rotate(1deg);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+
+    .featured-clip__picture:hover & {
+      transform: scale(1.08);
+    }
+  }
+
+  &__tag {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+    background: var(--color-brand);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 10px rgba(178, 58, 30, 0.4);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+
+    .section__title {
+      text-align: left;
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      margin: 0;
+      color: var(--color-muted);
+    }
   }
 }
 
@@ -262,11 +499,27 @@ a {
   padding: 0.75rem 1.4rem;
   border-radius: var(--radius);
   font-weight: 700;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 
   &:hover,
   &:focus-visible {
     background: var(--color-brand-dark);
     color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(178, 58, 30, 0.35);
+  }
+
+  &--secondary {
+    background: var(--color-surface);
+    color: var(--color-brand);
+    border: 2px solid var(--color-brand);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-brand);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(178, 58, 30, 0.25);
+    }
   }
 }
 
@@ -310,8 +563,29 @@ a {
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 
-  img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(43, 36, 32, 0.12);
+    border-color: #d8c8b6;
+  }
+
+  picture {
+    display: block;
+    overflow: hidden;
+  }
+
+  img {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.03);
+  }
 
   &__body {
     padding: 1.1rem 1.2rem 1.4rem;
@@ -372,11 +646,26 @@ a {
 
 // ---- Recipe detail ----
 .recipe {
+  &__hero-picture {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
   &__hero-img {
     width: 100%;
     max-height: 60vh;
     object-fit: cover;
     border-radius: var(--radius);
+    display: block;
+    transition: transform 0.5s ease;
+
+    .recipe__hero-picture:hover & {
+      transform: scale(1.02);
+    }
   }
 
   &__meta {
@@ -404,12 +693,25 @@ a {
   gap: 0.75rem;
   margin: 1.5rem 0;
 
-  a { display: block; }
+  a {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(43, 36, 32, 0.08);
+  }
 
   img {
     aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 8px;
+    width: 100%;
+    display: block;
+    transition: transform 0.35s ease, filter 0.35s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      filter: brightness(1.05);
+    }
   }
 }
 

@@ -8,6 +8,8 @@
       content="Receta de tortilla de patatas jugosa paso a paso: proporciones, punto de cuajado y el truco para darle la vuelta. Con galería y vídeo."
     />
     <title>Tortilla de patatas jugosa, paso a paso — Sabores de Casa</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link rel="alternate icon" href="../assets/favicon.png" />
     <link rel="stylesheet" href="../styles/main.scss" />
   </head>
   <body>
@@ -25,11 +27,73 @@
       <article class="section container recipe">
         <h1>Tortilla de patatas jugosa, paso a paso</h1>
 
-        <img
-          class="recipe__hero-img"
-          src="../assets/images/tortilla-hero.jpg"
-          alt="Tortilla de patatas cortada, mostrando el interior jugoso"
-        />
+        <!-- Dirección de arte: adaptación de proporciones y encuadre según el dispositivo -->
+        <picture class="recipe__hero-picture">
+          <!-- Versión móvil (< 640px): encuadre cuadrado 1:1 focalizado en el corte meloso -->
+          <source
+            media="(max-width: 640px)"
+            srcset="
+              ../assets/images/tortilla-hero-mobile.jpg?as=avif&width=400 400w,
+              ../assets/images/tortilla-hero-mobile.jpg?as=avif&width=800 800w
+            "
+            sizes="100vw"
+            type="image/avif"
+          />
+          <source
+            media="(max-width: 640px)"
+            srcset="
+              ../assets/images/tortilla-hero-mobile.jpg?as=webp&width=400 400w,
+              ../assets/images/tortilla-hero-mobile.jpg?as=webp&width=800 800w
+            "
+            sizes="100vw"
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 640px)"
+            srcset="
+              ../assets/images/tortilla-hero-mobile.jpg?width=400 400w,
+              ../assets/images/tortilla-hero-mobile.jpg?width=800 800w
+            "
+            sizes="100vw"
+            type="image/jpeg"
+          />
+
+          <!-- Versión escritorio / tablet (>= 641px): formato panorámico 16:9 -->
+          <source
+            media="(min-width: 641px)"
+            srcset="
+              ../assets/images/tortilla-hero.jpg?as=avif&width=640  640w,
+              ../assets/images/tortilla-hero.jpg?as=avif&width=1000 1000w,
+              ../assets/images/tortilla-hero.jpg?as=avif&width=1400 1400w
+            "
+            sizes="(max-width: 1100px) 100vw, 1100px"
+            type="image/avif"
+          />
+          <source
+            media="(min-width: 641px)"
+            srcset="
+              ../assets/images/tortilla-hero.jpg?as=webp&width=640  640w,
+              ../assets/images/tortilla-hero.jpg?as=webp&width=1000 1000w,
+              ../assets/images/tortilla-hero.jpg?as=webp&width=1400 1400w
+            "
+            sizes="(max-width: 1100px) 100vw, 1100px"
+            type="image/webp"
+          />
+          <img
+            class="recipe__hero-img"
+            src="../assets/images/tortilla-hero.jpg?width=1000"
+            srcset="
+              ../assets/images/tortilla-hero.jpg?width=640  640w,
+              ../assets/images/tortilla-hero.jpg?width=1000 1000w,
+              ../assets/images/tortilla-hero.jpg?width=1400 1400w
+            "
+            sizes="(max-width: 1100px) 100vw, 1100px"
+            alt="Tortilla de patatas tradicional cortada en porción con interior jugoso y cebolla caramelizada"
+            width="1000"
+            height="558"
+            fetchpriority="high"
+          />
+        </picture>
 
         <ul class="recipe__meta">
           <li>Dificultad: fácil</li>
@@ -72,11 +136,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Patatas</th><td>600 g</td></tr>
-              <tr><th scope="row">Huevos</th><td>6 unidades</td></tr>
-              <tr><th scope="row">Cebolla</th><td>1 grande</td></tr>
+              <tr><th scope="row">Patatas agrias</th><td>600 g</td></tr>
+              <tr><th scope="row">Huevos camperos</th><td>6 unidades</td></tr>
+              <tr><th scope="row">Cebolla dulce</th><td>1 grande</td></tr>
               <tr><th scope="row">Aceite de oliva virgen extra</th><td>para confitar</td></tr>
-              <tr><th scope="row">Sal</th><td>al gusto</td></tr>
+              <tr><th scope="row">Sal marina fina</th><td>al gusto</td></tr>
             </tbody>
           </table>
 
@@ -91,15 +155,97 @@
 
           <h2>Galería</h2>
           <p>Toca cualquier foto para verla a pantalla completa.</p>
+
+          <!-- Galería con Resolution Switching por densidad de píxeles (DPI 1x / 2x) -->
           <div class="gallery">
-            <a class="glightbox" data-gallery="tortilla">
-              <img src="../assets/images/tortilla-1.jpg" alt="Patatas confitándose a fuego suave en aceite" />
+            <a class="glightbox" href="../assets/images/tortilla-1.jpg?as=webp&width=1200" data-gallery="tortilla">
+              <picture>
+                <source
+                  srcset="
+                    ../assets/images/tortilla-1.jpg?as=avif&width=350 1x,
+                    ../assets/images/tortilla-1.jpg?as=avif&width=700 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  srcset="
+                    ../assets/images/tortilla-1.jpg?as=webp&width=350 1x,
+                    ../assets/images/tortilla-1.jpg?as=webp&width=700 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="../assets/images/tortilla-1.jpg?width=350"
+                  srcset="
+                    ../assets/images/tortilla-1.jpg?width=350 1x,
+                    ../assets/images/tortilla-1.jpg?width=700 2x
+                  "
+                  alt="Láminas de patatas confitándose a fuego muy suave en abundante aceite"
+                  loading="lazy"
+                  width="350"
+                  height="262"
+                />
+              </picture>
             </a>
-            <a class="glightbox" data-gallery="tortilla">
-              <img src="../assets/images/tortilla-2.jpg" alt="Mezcla de patata, cebolla y huevo batido" />
+
+            <a class="glightbox" href="../assets/images/tortilla-2.jpg?as=webp&width=1200" data-gallery="tortilla">
+              <picture>
+                <source
+                  srcset="
+                    ../assets/images/tortilla-2.jpg?as=avif&width=350 1x,
+                    ../assets/images/tortilla-2.jpg?as=avif&width=700 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  srcset="
+                    ../assets/images/tortilla-2.jpg?as=webp&width=350 1x,
+                    ../assets/images/tortilla-2.jpg?as=webp&width=700 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="../assets/images/tortilla-2.jpg?width=350"
+                  srcset="
+                    ../assets/images/tortilla-2.jpg?width=350 1x,
+                    ../assets/images/tortilla-2.jpg?width=700 2x
+                  "
+                  alt="Mezcla reposada de patata confitada, cebolla pochada y huevo batido"
+                  loading="lazy"
+                  width="350"
+                  height="262"
+                />
+              </picture>
             </a>
-            <a class="glightbox" data-gallery="tortilla">
-              <img src="../assets/images/tortilla-3.jpg" alt="Tortilla cuajándose en la sartén" />
+
+            <a class="glightbox" href="../assets/images/tortilla-3.jpg?as=webp&width=1200" data-gallery="tortilla">
+              <picture>
+                <source
+                  srcset="
+                    ../assets/images/tortilla-3.jpg?as=avif&width=350 1x,
+                    ../assets/images/tortilla-3.jpg?as=avif&width=700 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  srcset="
+                    ../assets/images/tortilla-3.jpg?as=webp&width=350 1x,
+                    ../assets/images/tortilla-3.jpg?as=webp&width=700 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="../assets/images/tortilla-3.jpg?width=350"
+                  srcset="
+                    ../assets/images/tortilla-3.jpg?width=350 1x,
+                    ../assets/images/tortilla-3.jpg?width=700 2x
+                  "
+                  alt="Tortilla de patatas redondeándose en los bordes dentro de la sartén"
+                  loading="lazy"
+                  width="350"
+                  height="262"
+                />
+              </picture>
             </a>
           </div>
 
